@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
 import { 
     Container,
-    Button, 
+    Button,
     Form 
-} from 'semantic-ui-react'
-import { Redirect } from 'react-router-dom';
+} from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { userActions } from '../../actions';
 import './LoginPage.css';
 
 class LoginPage extends Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
+
+        this.state = {
+            username: '',
+            password: '',
+            submitted: false
+        };
+
     }
 
-    handleClick(e) {
-        <Redirect to={{ pathname: '/register' }} />
+    handleChange = (e, { name, value }) => this.setState({[name]: value})
+
+    handleSubmit = () => {
+        console.log('hello');
+        this.setState({ submitted: true });
+        const { username, password } = this.state;
+        const { dispatch } = this.props;
+        if (username && password) {
+            dispatch(userActions.login(username,password))
+        }
     }
 
     render() {
@@ -22,24 +38,27 @@ class LoginPage extends Component {
             <div class="login page padding">
                 <Container>
                     <h1> State of Hawaii Alert System </h1>
-                    <Form>
-                        <Form.Field>
-                            <label>Username</label>
-                            <input placeholder='Username' />
-                        </Form.Field>
-                        <Form.Field>
-                            <label>Password</label>
-                            <input placeholder='********' />
-                        </Form.Field>
-                        <Button 
-                        type='submit'
-                        onClick={this.handleClick}
-                        >Submit</Button>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Input placeholder='Username' name='username' onChange={this.handleChange} />
+                        <Form.Input placeholder='Password' name='password' onChange={this.handleChange} />  
+                        <Button type='submit'>Submit</Button>
                     </Form>
+
+                    <div class="login page padding"> 
+                        <Link to={'/register'}><h4>Register</h4></Link> 
+                    </div>
                 </Container>
             </div>
         );
     }
 }
 
-export default LoginPage;
+function mapStateToProps(state) {
+    const { loggingIn } = state.authentication;
+    return {
+        loggingIn
+    };
+}
+
+const connectedLoginPage = connect(mapStateToProps)(LoginPage);
+export { connectedLoginPage as LoginPage };
