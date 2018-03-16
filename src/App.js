@@ -8,7 +8,7 @@ import { history } from './helpers';
 import { connect } from 'react-redux';
 import { alertActions } from './actions';
 import { LoginPage } from './components/LoginPage';
-import RegisterPage from './components/RegisterPage/RegisterPage';
+import { RegisterPage } from './components/RegisterPage/RegisterPage';
 import { PrivateRoute } from './components/Shared/PrivateRoute';
 import './App.css';
 
