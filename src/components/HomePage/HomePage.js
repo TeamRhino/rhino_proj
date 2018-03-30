@@ -6,29 +6,24 @@ class HomePage extends Component {
         return(
             <div>
               <h1 align="center">Hawaii Emergency Alert System</h1>
-                <div class="left">
-                  <h2 align = "left"><a name = "ManMade">Man Made Disaster</a></h2>
 
+              <div class="left">
+                  <h2 align = "left"><a name = "ManMade">Man Made Disaster</a></h2>
                   <figure>
-                    <img src="https://www.iconexperience.com/_img/v_collection_png/512x512/shadow/ballistic_missile.png" width="100"></img>
-                    <h4>Ballistic Missile</h4>
+                    <a href="/page.html" ><img src="https://www.iconexperience.com/_img/v_collection_png/512x512/shadow/ballistic_missile.png" width="100"></img>Ballistic Missile</a> {/*when clicked goes to test or emergency page. Replace page.html*/}
                     </figure>
                 </div>
 
                 <div class="right">
-                  <h2><a name = "Natural">Natural Disaster</a></h2>
-
+                  <h2 ><a name = "Natural">Natural Disaster</a></h2>
                   <figure>
-                    <img src="https://cdn4.iconfinder.com/data/icons/aami-flat-disaster/64/disasters-01-512.png" width="100"></img>
-                    <h4>Tsunami</h4>
+                    <a href="/page.html" ><img src="https://cdn4.iconfinder.com/data/icons/aami-flat-disaster/64/disasters-01-512.png" width="100"></img> Tsunami</a> {/*when clicked goes to test or emergency page. Replace page.html*/}
                   </figure>
 
                   <figure>
-                    <img src="https://cdn1.iconfinder.com/data/icons/weather-elements/512/Weather_TornadoGradient.png" width="100"></img>
-                    <h4>Hurricane</h4>
+                    <a href="/page.html" ><img src="https://cdn1.iconfinder.com/data/icons/weather-elements/512/Weather_TornadoGradient.png" width="100"></img> Hurricane</a> {/*when clicked goes to test or emergency page. Replace page.html*/}
                   </figure>
                 </div>
-
             </div>
     );
     }
