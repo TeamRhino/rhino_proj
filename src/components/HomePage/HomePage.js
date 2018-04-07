@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './mockup.css';
+import './HomePage.css';
 import {Link} from  'react-router-dom';
 class HomePage extends Component {
     render() {
