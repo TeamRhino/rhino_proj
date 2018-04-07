@@ -4,16 +4,22 @@ import './index.css';
 import { App } from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
+import {
+    BrowserRouter
+  } from 'react-router-dom'
 import { store } from './helpers';
 import 'semantic-ui-css/semantic.min.css';
 
 // setup fake backend
 import { configureFakeBackend } from './helpers';
+
 configureFakeBackend();
 
 ReactDOM.render(
-        <Provider store={store}>
-            <App />
-        </Provider>,
+        <BrowserRouter>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </BrowserRouter>,
         document.getElementById('root'));
 registerServiceWorker();
