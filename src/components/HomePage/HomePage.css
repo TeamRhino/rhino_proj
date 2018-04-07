@@ -25,3 +25,9 @@ img{
   margin-right: 300px;
   padding: 1cm;
 }
+
+.ui.active.dimmer.modals.transition {
+  display: flex !important;
+  display: -ms-flexbox !important;
+  position: fixed;
+}
