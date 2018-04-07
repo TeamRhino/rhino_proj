@@ -3,7 +3,7 @@ import {
   Route,
   withRouter
 } from 'react-router-dom'
-import HomePage from './components/HomePage/HomePage';
+import { HomePage } from './components/HomePage/HomePage';
 import { history } from './helpers';
 import { connect } from 'react-redux';
 import { alertActions } from './actions';
