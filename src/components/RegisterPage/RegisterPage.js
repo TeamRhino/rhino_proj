@@ -55,38 +55,64 @@ class RegisterPage extends Component {
     userValidation = (user) => {
         let validated = true
         const REGEX = new RegExp(PASSWORD_REGEX)
+        if( this.firstNameValidation(user) 
+        && this.lastNameValidation(user)
+        && this.usernameValidation(user) 
+        && this.passwordValidation(user)
+        && this.confirmPasswordValidation(user)) {
+            return true;
+        }
+        return false;
+    }
+
+    firstNameValidation(user) {
         if (user.firstName === EMPTY_STRING) {
             this.setState({ firstNameError : true});
-            validated = false;
+            return false;
         } else {
             this.setState({ firstNameError : false});
+            return true;
         } 
+    }
+
+    lastNameValidation(user) {
         if (user.lastName === EMPTY_STRING) {
             this.setState({ lastNameError : true});
-            validated = false;
+            return false;
         } else {
             this.setState({ lastNameError : false});
-        }
+            return true;
+        } 
+    }
+
+    usernameValidation(user) {
         if (user.username === EMPTY_STRING) {
             this.setState({ usernameError : true});
-            validated = false;
+            return false;
         } else {
             this.setState({ usernameError : false});
+            return true;
         }
+    }
+
+    passwordValidation(user) {
         if (REGEX.test(user.password) === false ) {
             this.setState({ passwordError : true});
-            validated = false;
+            return false;
         } else {
             this.setState({ passwordError : false});
+            return true;
         }
+    }
+
+    confirmPasswordValidation(user) {
         if (user.password !== user.confirmpassword) {
             this.setState({ confirmError : true});
-            validated = false;
+            return false;
         } else {
             this.setState({ confirmError : false});
+            return true;
         }
-        
-        return validated;
     }
     
     handleSubmit = (event) => {
