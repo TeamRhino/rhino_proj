@@ -1,31 +1,49 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { 
     Button,
-    Header,
-    Image, 
     Modal, 
-    Icon 
 } from 'semantic-ui-react';
+import {
+    EMERGENCY_ALERT,
+    TEST_ALERT
+} from '../../constants'
+import './modal.css';
 
-class ModalClass extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render () {
-        return (
-            <Modal trigger={
-                <Button>
-                    <img src={this.props.image} width="100"></img>
-                </Button>
-                }>
-                <Modal.Header> {this.props.modalHeader} </Modal.Header>
-                <Modal.Content>
-                    
-                </Modal.Content>
-            </Modal>
-        )
-    }
+export const ModalClass = (props) => {
+    return (
+        <Modal trigger={
+            <Button>
+                <img src={props.image} alt="alert" width="100"></img>
+            </Button>
+            }>
+            <Modal.Header> {props.modalHeader} </Modal.Header>
+            <Modal.Content>
+                <div class="ui two column centered grid">
+                    <InnerModal 
+                    buttonLabel={EMERGENCY_ALERT}
+                    color="red"/>
+                    <InnerModal 
+                    buttonLabel={TEST_ALERT}
+                    color="green"/>
+                </div>
+            </Modal.Content>
+        </Modal>
+    )
 }
 
-export default ModalClass;
+export const InnerModal = (props) => {
+    return (
+        <Modal trigger={
+            <Button color={props.color}> {props.buttonLabel} </Button>
+        }>
+        <Modal.Header> Are you sure you want to send out a {props.buttonLabel}? </Modal.Header>
+        <Modal.Content>
+            <div class="ui two column centered grid">
+                <Button> Yes </Button>
+                <Button> No </Button>
+            </div>
+        </Modal.Content>
+        </Modal>
+    )
+}
+
