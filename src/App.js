@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {
   Route,
-  withRouter
+  withRouter,
+  Switch
 } from 'react-router-dom'
 import { HomePage } from './components/HomePage/HomePage';
 import { history } from './helpers';
@@ -29,11 +30,13 @@ class App extends Component {
     return ( 
       <div>
         <div >
-          <PrivateRoute exact path="/" component={HomePage} />
-          <PrivateRoute path="/hurricane" component={HurricanePage} />
-          <PrivateRoute path="/missile" component={MissilePage} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={RegisterPage} />
+          <Switch>
+            <PrivateRoute exact path="/" loggedIn={this.props.loggedIn} component={HomePage} />
+            <PrivateRoute path="/hurricane" component={HurricanePage} />
+            <PrivateRoute path="/missile" component={MissilePage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={RegisterPage} />
+          </Switch>
         </div>
       </div>
     );
@@ -42,8 +45,10 @@ class App extends Component {
 
 function mapStateToProps(state) {
   const { alert } = state;
+  const { loggedIn } = state.authentication;
   return {
-      alert
+      alert,
+      loggedIn
   };
 }
 

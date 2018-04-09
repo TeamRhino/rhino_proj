@@ -18,7 +18,7 @@ import {
     ERROR_MESSAGE
 } from '../../constants';
 
-class RegisterPage extends Component {
+export default class RegisterPage extends Component {
 
     constructor(props) {
         super(props);
@@ -30,14 +30,14 @@ class RegisterPage extends Component {
                 username: '',
                 password: '',
                 confirmpassword: '',
-                success: false,
-                fireRedirect: false,
-                firstNameError: false,
-                lastNameError: false,
-                usernameError: false,
-                passwordError: false,
-                confirmError: false
             },
+            success: false,
+            fireRedirect: false,
+            firstNameError: false,
+            lastNameError: false,
+            usernameError: false,
+            passwordError: false,
+            confirmError: false,
             submitted: false
         };
     }
@@ -53,16 +53,18 @@ class RegisterPage extends Component {
     }
 
     userValidation = (user) => {
-        let validated = true
-        const REGEX = new RegExp(PASSWORD_REGEX)
-        if( this.firstNameValidation(user) 
-        && this.lastNameValidation(user)
-        && this.usernameValidation(user) 
-        && this.passwordValidation(user)
-        && this.confirmPasswordValidation(user)) {
-            return true;
+        let validated = [];
+        validated.push(this.firstNameValidation(user))
+        validated.push(this.lastNameValidation(user))
+        validated.push(this.usernameValidation(user))
+        validated.push(this.passwordValidation(user))
+        validated.push(this.confirmPasswordValidation(user))
+        for (let i = 0; i < validated.length ; i++) {
+            if (validated[i] === false) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 
     firstNameValidation(user) {
@@ -96,6 +98,7 @@ class RegisterPage extends Component {
     }
 
     passwordValidation(user) {
+        const REGEX = new RegExp(PASSWORD_REGEX)
         if (REGEX.test(user.password) === false ) {
             this.setState({ passwordError : true});
             return false;
@@ -164,5 +167,5 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedRegisterPage = withRouter(connect(mapStateToProps)(RegisterPage));
+const connectedRegisterPage = connect(mapStateToProps)(RegisterPage);
 export { connectedRegisterPage as RegisterPage };
