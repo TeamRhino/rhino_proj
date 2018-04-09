@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import {
   Route,
-<<<<<<< HEAD
   withRouter,
   Switch
-=======
-  withRouter
->>>>>>> master
 } from 'react-router-dom'
 import { HomePage } from './components/HomePage/HomePage';
 import { history } from './helpers';
@@ -34,7 +30,6 @@ class App extends Component {
     return ( 
       <div>
         <div >
-<<<<<<< HEAD
           <Switch>
             <PrivateRoute exact path="/" loggedIn={this.props.loggedIn} component={HomePage} />
             <PrivateRoute path="/hurricane" component={HurricanePage} />
@@ -42,13 +37,6 @@ class App extends Component {
             <Route path="/login" component={LoginPage} />
             <Route path="/register" component={RegisterPage} />
           </Switch>
-=======
-          <PrivateRoute exact path="/" component={HomePage} />
-          <PrivateRoute path="/hurricane" component={HurricanePage} />
-          <PrivateRoute path="/missile" component={MissilePage} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/register" component={RegisterPage} />
->>>>>>> master
         </div>
       </div>
     );
