@@ -1,0 +1,1 @@
+export const HOMEPAGE_TITLE = "Hawaii Emergency Alert System"
