@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { 
     Button,
     Modal, 
@@ -6,30 +6,54 @@ import {
 import {
     EMERGENCY_ALERT,
     TEST_ALERT
-} from '../../constants'
+} from '../../constants';
+import {
+    Link
+} from 'react-router-dom';
 import './modal.css';
 
-export const ModalClass = (props) => {
-    return (
-        <Modal trigger={
-            <Button>
-                <img src={props.image} alt="alert" width="100"></img>
+export class ModalClass extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        };
+    }
+
+    handleOpen = () => this.setState({ open: true });
+
+    handleClose = () => this.setState({ open: false });
+
+    render() {
+        return (
+        <Modal open={this.state.open}
+        trigger={
+            <Button onClick={this.handleOpen}>
+                <img src={this.props.image} alt="alert" width="100"></img>
             </Button>
             }>
-            <Modal.Header> {props.modalHeader} </Modal.Header>
+            <Modal.Header> {this.props.modalHeader} </Modal.Header>
             <Modal.Content>
                 <div class="ui two column centered grid">
                     <InnerModal 
                     buttonLabel={EMERGENCY_ALERT}
-                    color="red"/>
+                    link={this.props.link}
+                    color="red"
+                    handleClose={this.handleClose}/>
                     <InnerModal 
                     buttonLabel={TEST_ALERT}
-                    color="green"/>
+                    link={this.props.link}
+                    color="green"
+                    handleClose={this.handleClose}/>
                 </div>
             </Modal.Content>
         </Modal>
     )
+    }
 }
+
+
 
 export const InnerModal = (props) => {
     return (
@@ -39,8 +63,8 @@ export const InnerModal = (props) => {
         <Modal.Header> Are you sure you want to send out a {props.buttonLabel}? </Modal.Header>
         <Modal.Content>
             <div class="ui two column centered grid">
-                <Button> Yes </Button>
-                <Button> No </Button>
+                <Link to={props.link}><Button> Yes </Button></Link>
+                <Button onClick={props.handleClose}> No </Button>
             </div>
         </Modal.Content>
         </Modal>

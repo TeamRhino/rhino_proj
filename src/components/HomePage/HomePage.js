@@ -8,6 +8,7 @@ import { ModalClass } from '../Shared/Modal';
 
 
 class HomePage extends Component {
+
     render() {
         return(
             <div>
@@ -17,7 +18,8 @@ class HomePage extends Component {
                   <figure>
                     <ModalClass
                         image="https://www.iconexperience.com/_img/v_collection_png/512x512/shadow/ballistic_missile.png"
-                        modalHeader="What type of alert would you like to send?">
+                        modalHeader="What type of alert would you like to send?"
+                        link="/alertpage">
                     </ModalClass>
                   </figure>
                 </div>
@@ -27,14 +29,16 @@ class HomePage extends Component {
                   <figure>
                     <ModalClass
                             image="https://cdn4.iconfinder.com/data/icons/aami-flat-disaster/64/disasters-01-512.png"
-                            modalHeader="What type of alert would you like to send?">
+                            modalHeader="What type of alert would you like to send?"
+                            link="/alertpage">
                     </ModalClass>
                   </figure>
 
                   <figure>
                     <ModalClass
                             image="https://cdn1.iconfinder.com/data/icons/weather-elements/512/Weather_TornadoGradient.png"
-                            modalHeader="What type of alert would you like to send?">
+                            modalHeader="What type of alert would you like to send?"
+                            link="/alertpage">
                     </ModalClass>
                   </figure>
                 </div>

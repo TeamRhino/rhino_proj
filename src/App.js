@@ -10,8 +10,7 @@ import { connect } from 'react-redux';
 import { alertActions } from './actions';
 import { LoginPage } from './components/LoginPage';
 import { RegisterPage } from './components/RegisterPage/RegisterPage';
-import HurricanePage from './components/HurricanePage/HurricanePage';
-import MissilePage from './components/MissilePage/MissilePage';
+import AlertPage from './components/AlertPage/AlertPage';
 import { PrivateRoute } from './components/Shared/PrivateRoute';
 import './App.css';
 
@@ -32,8 +31,7 @@ class App extends Component {
         <div >
           <Switch>
             <PrivateRoute exact path="/" loggedIn={this.props.loggedIn} component={HomePage} />
-            <PrivateRoute path="/hurricane" component={HurricanePage} />
-            <PrivateRoute path="/missile" component={MissilePage} />
+            <PrivateRoute path="/alertpage" component={AlertPage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/register" component={RegisterPage} />
           </Switch>

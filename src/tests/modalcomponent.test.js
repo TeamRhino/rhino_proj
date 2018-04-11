@@ -10,11 +10,12 @@ import {
     ModalClass,
     InnerModal 
 } from '../components/Shared';
+import { Link } from 'react-router-dom';
 
 import { shallow } from 'enzyme';
 
 describe('ModalClass', () => {
-    const wrapper = shallow( <ModalClass/> )
+    const wrapper = shallow( <ModalClass link={'/alertpage'}/> );
     it('renders properly', () => {
         expect(wrapper.exists(Modal)).toBe(true)
     });
@@ -36,5 +37,16 @@ describe('ModalClass', () => {
     it('inner-modal has two buttons', () => {
         expect(shallow(<InnerModal/>).find(Button).length).toBe(2);
     });
+
+    it('modal is initially closed', () => {
+        expect(wrapper.state().open).toBe(false);
+    })
+
+    it('modal is open after click button', () => {
+        console.log(wrapper.find(InnerModal).at(0).dive().find(Link).props());
+        console.log(wrapper.find(InnerModal).at(1).dive().find(Link).props())
+        wrapper.instance().handleOpen();
+        expect(wrapper.state().open).toBe(true);
+    })
 
 });
