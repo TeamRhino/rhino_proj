@@ -7,7 +7,6 @@ import RegisterPage from '../components/RegisterPage/RegisterPage';
 import { shallow } from 'enzyme';
 
 /* Testing HOC https://stackoverflow.com/questions/36211739/invariant-violation-could-not-find-store-in-either-the-context-or-props-of-c */ 
-
 describe('RegisterPage', () => {
     const wrapper = shallow( <RegisterPage/>  );
     it('should render without throwing an error', () => {

@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './HomePage.css';
 import {
-    Link,
-    withRouter
-  } from 'react-router-dom';
-import {
     HOMEPAGE_TITLE
 } from '../../constants';
-import ModalClass from '../Shared/Modal';
-import { Button } from 'semantic-ui-react';
+import { ModalClass } from '../Shared/Modal';
 
 
 class HomePage extends Component {
