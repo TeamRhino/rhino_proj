@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { userActions } from '../../actions';
 import './LoginPage.css';
 
-class LoginPage extends Component {
+export default class LoginPage extends Component {
     constructor(props) {
         super(props);
 
@@ -24,7 +24,6 @@ class LoginPage extends Component {
     handleChange = (e, { name, value }) => this.setState({[name]: value})
 
     handleSubmit = () => {
-        console.log('hello');
         this.setState({ submitted: true });
         const { username, password } = this.state;
         const { dispatch } = this.props;
