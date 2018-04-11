@@ -8,6 +8,8 @@ import {
     TEST_ALERT
 } from '../../constants';
 import './modal.css';
+import PropTypes from 'prop-types';
+
 
 export class ModalClass extends Component {
 
@@ -75,8 +77,6 @@ export class ModalClass extends Component {
     }
 }
 
-
-
 export const InnerModal = (props) => {
     return (
         <Modal trigger={
@@ -93,3 +93,16 @@ export const InnerModal = (props) => {
     )
 }
 
+ModalClass.PropTypes = {
+    image: PropType.string.isRequired,
+    modalHeader: PropType.string.isRequired,
+    handleClick: PropType.func,
+    eventHandler: PropType.func,
+    link: PropType.string.isRequired
+}
+
+ModalClass.defaultProps = {
+    image: "",
+    modalHeader: "What would you like to do?",
+    link: "/",
+}
