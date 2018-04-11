@@ -93,12 +93,12 @@ export const InnerModal = (props) => {
     )
 }
 
-ModalClass.PropTypes = {
-    image: PropType.string.isRequired,
-    modalHeader: PropType.string.isRequired,
-    handleClick: PropType.func,
-    eventHandler: PropType.func,
-    link: PropType.string.isRequired
+ModalClass.propTypes = {
+    image: PropTypes.string.isRequired,
+    modalHeader: PropTypes.string.isRequired,
+    handleClick: PropTypes.func,
+    eventHandler: PropTypes.func,
+    link: PropTypes.string.isRequired
 }
 
 ModalClass.defaultProps = {
