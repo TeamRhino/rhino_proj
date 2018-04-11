@@ -11,7 +11,10 @@ import {
     InnerModal 
 } from '../components/Shared';
 import { Link } from 'react-router-dom';
-
+import { 
+    EMERGENCY_ALERT,
+    TEST_ALERT
+} from '../constants';
 import { shallow } from 'enzyme';
 
 describe('ModalClass', () => {
@@ -40,6 +43,20 @@ describe('ModalClass', () => {
 
     it('modal is initially closed', () => {
         expect(wrapper.state().open).toBe(false);
+    })
+
+    it('modal has blank initial alert type', () => {
+        expect(wrapper.state().alertType).toBe('');
+    })
+
+    it('onTestAlertClick sets correct state', () => {
+        wrapper.instance().onTestAlertClick()
+        expect(wrapper.state().alertType).toBe("Test Alert")
+    })
+
+    it('onEmergencyAlertClick sets correct state', () => {
+        wrapper.instance().onEmergencyAlertClick()
+        expect(wrapper.state().alertType).toBe("Emergency Alert")
     })
 
     it('modal is open after click button', () => {
