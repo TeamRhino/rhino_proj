@@ -7,7 +7,6 @@ class HomePage extends Component {
         <div>
           <h1 align="center">Warning Types</h1>
 
-
           <div class="row">
             <div class="column">
               <img src="http://www.cityofhubbard-oh.gov/wp-content/uploads/2017/04/tornado-siren.jpg" width="100" height="100"></img>
