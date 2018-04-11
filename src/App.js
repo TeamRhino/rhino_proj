@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { alertActions } from './actions';
 import { LoginPage } from './components/LoginPage';
 import { RegisterPage } from './components/RegisterPage/RegisterPage';
-import AlertPage from './components/AlertPage/AlertPage';
+import { AlertPage } from './components/AlertPage/AlertPage';
 import { PrivateRoute } from './components/Shared/PrivateRoute';
 import './App.css';
 

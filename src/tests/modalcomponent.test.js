@@ -43,10 +43,18 @@ describe('ModalClass', () => {
     })
 
     it('modal is open after click button', () => {
-        console.log(wrapper.find(InnerModal).at(0).dive().find(Link).props());
-        console.log(wrapper.find(InnerModal).at(1).dive().find(Link).props())
+       /* Both console statements can be uncommented to attempt to find the problem with the warning... for now it seems ok 
+       Reference: https://stackoverflow.com/questions/49768638/prop-type-warning-from-react-router-link-when-using-enzymes-shallow-rendering
+       */
+        // console.log(wrapper.find(InnerModal).at(0).dive().find(Link).props());
+       // console.log(wrapper.find(InnerModal).at(1).dive().find(Link).props())
         wrapper.instance().handleOpen();
         expect(wrapper.state().open).toBe(true);
+    })
+
+    it('modal closes after handleClose', () => {
+        wrapper.instance().handleClose();
+        expect(wrapper.state().open).toBe(false);
     })
 
 });
