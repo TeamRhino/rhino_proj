@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './AlertTypes.css';
 import {Link} from  'react-router-dom';
-class HomePage extends Component {
+class AlertTypes extends Component {
   render() {
     return(
         <div>
@@ -37,4 +37,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default AlertTypes;
