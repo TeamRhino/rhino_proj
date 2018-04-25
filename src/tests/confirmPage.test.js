@@ -52,5 +52,9 @@ describe('ConfirmPage', () => {
             expect(wrapper.find(Form.Input).length).toBe(2);
     });
 
+    it('Has two password fields', () => {
+        const wrapper = shallow(<ConfirmPage alertTypes={sirenAlertTypes} disasterAlerts={testDisasterAlerts}/>);
+        expect(wrapper.find(Form.Input).length).toBe(2);
+    });
 
 })
