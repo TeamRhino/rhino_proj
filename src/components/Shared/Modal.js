@@ -58,14 +58,12 @@ export class ModalClass extends Component {
                 <div className="ui two column centered grid">
                     <InnerModal 
                     buttonLabel={EMERGENCY_ALERT}
-                    link={this.props.link}
                     onClick={this.onEmergencyAlertClick}
                     handleClick={this.handleClick}
                     color="red"
                     handleClose={this.handleClose}/>
                     <InnerModal 
                     buttonLabel={TEST_ALERT}
-                    link={this.props.link}
                     handleClick={this.handleClick}
                     onClick={this.onTestAlertClick}
                     color="green"
@@ -98,11 +96,9 @@ ModalClass.propTypes = {
     modalHeader: PropTypes.string.isRequired,
     handleClick: PropTypes.func,
     eventHandler: PropTypes.func,
-    link: PropTypes.string.isRequired
 }
 
 ModalClass.defaultProps = {
     image: "",
     modalHeader: "What would you like to do?",
-    link: "/",
 }

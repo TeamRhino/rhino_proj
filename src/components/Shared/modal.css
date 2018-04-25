@@ -10,3 +10,7 @@
 .header {
     text-align: center;
 }
+
+.ui.two.column.centered.grid {
+    width:inherit;
+}
