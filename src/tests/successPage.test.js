@@ -47,7 +47,6 @@ describe('SuccessPage', () => {
 
     it('Should not render iframe when tv is false or audio when siren is false', () => {
         const wrapper = shallow(<SuccessPage alertTypes={falseAlertTypes}/>);
-        console.log(wrapper.debug())
         expect(wrapper.find('iframe').length).toBe(0);
         expect(wrapper.find('audio').length).toBe(0);
     })
