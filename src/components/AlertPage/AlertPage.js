@@ -42,10 +42,16 @@ export default class AlertPage extends Component {
               </div>
 
             </div>
+      <button type="button"><a href="http://google.com">next</a></button>
             </Container>
-        )
+
+    )
+
     }
 }
+
+
+
 
 function mapStateToProps(state) {
     const { disasterAlerts } = state;
