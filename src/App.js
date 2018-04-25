@@ -12,6 +12,8 @@ import { LoginPage } from './components/LoginPage';
 import { RegisterPage } from './components/RegisterPage/RegisterPage';
 import { AlertPage } from './components/AlertPage/AlertPage';
 import { PrivateRoute } from './components/Shared/PrivateRoute';
+import { SuccessPage } from './components/SuccessPage/SuccessPage';
+import { ConfirmPage } from './components/ConfirmPage/ConfirmPage';
 import './App.css';
 
 class App extends Component {
@@ -32,6 +34,8 @@ class App extends Component {
           <Switch>
             <PrivateRoute exact path="/" loggedIn={this.props.loggedIn} component={HomePage} />
             <PrivateRoute path="/alertpage" component={AlertPage} />
+            <PrivateRoute path="/confirmpage" component={ConfirmPage} />
+            <PrivateRoute path="/successpage" component={SuccessPage} />
             <Route path="/login" component={LoginPage} />
             <Route path="/register" component={RegisterPage} />
           </Switch>
