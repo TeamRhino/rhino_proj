@@ -17,30 +17,30 @@ describe('ConfirmPage', () => {
         radio: false,
         tv: false,
         sms: false
-    }
+    };
 
     const tvAlertTypes = {
         siren: false,
         radio: false,
         tv: true,
         sms: false
-    }
+    };
 
     const falseAlertTypes = {
         siren: false,
         radio: false,
         tv: false,
         sms: false
-    }
+    };
     
     const testAlertType = {
         alertType: "Missile Alert",
         alertEvent: "Test Alert"
-    }
+    };
 
     const testDisasterAlerts = {
         alertType: {testAlertType}
-    }
+    };
 
     it('Should render properly', () => {
         const wrapper = shallow(<ConfirmPage alertTypes={sirenAlertTypes} disasterAlerts={testDisasterAlerts}/>);
@@ -52,9 +52,26 @@ describe('ConfirmPage', () => {
             expect(wrapper.find(Form.Input).length).toBe(2);
     });
 
-    it('Has two password fields', () => {
+    it('Has submit button', () => {
         const wrapper = shallow(<ConfirmPage alertTypes={sirenAlertTypes} disasterAlerts={testDisasterAlerts}/>);
-        expect(wrapper.find(Form.Input).length).toBe(2);
+        expect(wrapper.find(Button).length).toBe(1);
     });
 
+    it('handleSubmit sets submitted to true if password fields are same', () => {
+        const dispatch = jest.fn();
+        const wrapper = shallow(<ConfirmPage dispatch={dispatch} alertTypes={sirenAlertTypes} disasterAlerts={testDisasterAlerts}/>);
+        wrapper.state().password = "TEST";
+        wrapper.state().confirm = "TEST";
+        wrapper.instance().handleSubmit()
+        expect(wrapper.state().submitted).toBe(true);
+    });
+
+    it('handleSubmit sets submitted to false if passwords are not the same', () => {
+        const dispatch = jest.fn();
+        const wrapper = shallow(<ConfirmPage dispatch={dispatch} alertTypes={sirenAlertTypes} disasterAlerts={testDisasterAlerts}/>);
+        wrapper.state().password = "asdfsdfdsf";
+        wrapper.state().confirm = "TEST";
+        wrapper.instance().handleSubmit()
+        expect(wrapper.state().submitted).toBe(false);
+    });
 })
