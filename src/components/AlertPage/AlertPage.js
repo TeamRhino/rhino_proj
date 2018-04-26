@@ -178,7 +178,7 @@ export default class AlertPage extends Component {
                 {this.renderModal()}
               </div>
             </div>
-      <button type="button"><a href="http://google.com">next</a></button>
+
             </Container>
 
     )
