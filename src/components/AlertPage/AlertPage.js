@@ -178,10 +178,16 @@ export default class AlertPage extends Component {
                 {this.renderModal()}
               </div>
             </div>
+
             </Container>
-        )
+
+    )
+
     }
 }
+
+
+
 
 function mapStateToProps(state) {
     const { disasterAlerts } = state;

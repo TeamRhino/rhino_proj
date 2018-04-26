@@ -31,7 +31,7 @@ export default class SuccessPage extends Component {
         if (this.props.alertTypes.tv) {
             return (
                 <div>
-                    <h2> To simulate a TV alert a youtube video is linked </h2>
+                    <h2> To simulate a TV alert a Youtube video is linked </h2>
                     <iframe width="420" height="315"
                         src="https://www.youtube.com/embed/ec7IN0KLWlU?autoplay=1">
                     </iframe>

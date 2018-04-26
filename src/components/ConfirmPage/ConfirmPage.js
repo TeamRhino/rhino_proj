@@ -14,7 +14,8 @@ export default class ConfirmPage extends Component {
         this.state = {
             confirm: '',
             password: '',
-            submitted: false
+            submitted: false,
+            passwordError: false
         };
     }
 
@@ -56,8 +57,10 @@ export default class ConfirmPage extends Component {
         this.setState({ submitted: true });
         const { password, confirm } = this.state;
         const { dispatch } = this.props;
-        if (confirm && password) {
+        if (confirm === password) {
             dispatch(userActions.verifyAlert(this.props.user, password))
+        } else {
+            this.setState({passwordError: true, submitted: false})
         }
     }
 
@@ -74,8 +77,8 @@ export default class ConfirmPage extends Component {
                     <h1> Reminder: You are sending a {this.props.disasterAlerts.alertType} {this.props.disasterAlerts.alertEvent} </h1>
 
                     <Form onSubmit={this.handleSubmit}>
-                        <Form.Input type='password' placeholder='Password' name='password' onChange={this.handleChange} />
-                        <Form.Input type='password' placeholder='Confirm' name='confirm' onChange={this.handleChange} />  
+                        <Form.Input error={this.state.passwordError} type='password' placeholder='Password' name='password' onChange={this.handleChange} />
+                        <Form.Input error={this.state.passwordError} type='password' placeholder='Confirm' name='confirm' onChange={this.handleChange} />  
                         <Button type='submit'>Submit</Button>
                     </Form>
 
