@@ -39,7 +39,7 @@ export default class LoginPage extends Component {
                     <h1> State of Hawaii Alert System </h1>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Input placeholder='Username' name='username' onChange={this.handleChange} />
-                        <Form.Input placeholder='Password' name='password' onChange={this.handleChange} />  
+                        <Form.Input placeholder='Password' type='password' name='password' onChange={this.handleChange} />  
                         <Button type='submit'>Submit</Button>
                     </Form>
 

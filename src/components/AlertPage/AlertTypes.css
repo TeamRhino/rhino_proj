@@ -1,6 +1,15 @@
+.ui.button {
+    text-align:center;
+}
+
 .column {
   float: left;
   width: 25%;
+}
+
+.centered.row{
+  padding-top:50px;
+  text-align: center;
 }
 
 /* Clear floats after the columns */

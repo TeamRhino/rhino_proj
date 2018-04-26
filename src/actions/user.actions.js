@@ -7,6 +7,7 @@ export const userActions = {
     login,
     logout,
     register,
+    verifyAlert,
     getAll,
     delete: _delete
 };
@@ -60,6 +61,25 @@ function register(user) {
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
+
+function verifyAlert(user, password) {
+    return dispatch => {
+        userService.getAll()
+        .then(
+            users => verifyPasswords(users, user, password),
+            error => dispatch(failure(error))
+        )
+    }
+    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
+    function verifyPasswords(users, user, password) {
+        const result = users.filter(userInUsers => userInUsers.username === user.username)
+        console.log(result)
+        if (result.length > 0 && users[0].password === password) {
+            history.push('/successpage');
+        } 
+    }
+}
+
 
 function getAll() {
     return dispatch => {

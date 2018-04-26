@@ -28,9 +28,7 @@ class HomePage extends Component {
     }
 
     handleMissileAlert() {
-        console.log('dispatching');
         const { dispatch } = this.props;
-        console.log(this.props);
         dispatch(disasterAlertActions.goToAlertsPage(MISSILE_ALERT, this.handleEventType));
     }
 

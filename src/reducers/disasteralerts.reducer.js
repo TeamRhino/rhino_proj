@@ -7,6 +7,17 @@ export function disasterAlerts(state = {}, action) {
           alertEvent: action.alertEvent,
           alertType: action.alertType
          };
+    case disasterAlertConstants.CONFIRMING_ALERT:
+         return {
+           ...state,
+           alertTypes: action.alertTypes
+         }
+    case disasterAlertConstants.RETURN_MAIN_PAGE:
+         return {
+           alertTypes: "",
+           alertEvent: "",
+           alertType: ""
+         }
     default:
       return state
   }
