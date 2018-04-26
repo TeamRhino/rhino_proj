@@ -30,11 +30,21 @@ describe('UserAction', () => {
         expect(userActions.logout()).toEqual(expectedAction)
     });
 
-   /* it('login should return promise and success actions', () => {
-        window.fetch = jest.fn().mockImplementation(() =>
-            Promise.resolve(mockResponse(200, null, '{"ids":{"provider":' + id + '}}')));
-        
-    }) */
+    it('login should return promise and success actions', () => {
+        const store = mockStore({});
+        const username = "test";
+        const password = "test";
+        const dispatch = jest.fn();
+
+        fetch.mockResponseOnce(JSON.stringify({ username: "test", password:"test" }));
+
+        const expected = {type: userConstants.LOGIN_REQUEST, user: {username: username}};
+
+        expect(typeof(userActions.login(username, password))).toEqual('function');
+
+        userActions.login(username, password)(dispatch);
+        expect(dispatch).toBeCalledWith(expected)
+    }) 
 });
 
 
