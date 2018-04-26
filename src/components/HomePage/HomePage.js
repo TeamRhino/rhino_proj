@@ -46,16 +46,15 @@ class HomePage extends Component {
         return(
             <div>
               <h1 align="center">{HOMEPAGE_TITLE}</h1>
-              <div class="grid-container">
-                <div class="grid-item">Man-Made Disaster</div>
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
-                <div class="grid-item">Natural Disaster</div>
-
+              <div class="container">
+                <div class="container-item">Man-Made Disaster</div>
+                <div class="container-item"></div>
+                <div class="container-item"></div>
+                <div class="container-item">Natural Disaster</div>
               </div>
 
-              <div class="grid-container">
-                <div class="grid-item">
+              <div class="container">
+                <div class="container-item">
                   <figure>
                     <ModalClass
                         image="https://www.iconexperience.com/_img/v_collection_png/512x512/shadow/ballistic_missile.png"
@@ -67,11 +66,11 @@ class HomePage extends Component {
                   </figure>
                 </div>
 
-                <div class="grid-item"></div>
-                <div class="grid-item"></div>
+                <div class="container-item"></div>
+                <div class="container-item"></div>
 
 
-                <div class="grid-item">
+                <div class="container-item">
                    <figure>
                     <ModalClass
                             image="https://cdn4.iconfinder.com/data/icons/aami-flat-disaster/64/disasters-01-512.png"
@@ -82,7 +81,8 @@ class HomePage extends Component {
                     </ModalClass>
                   </figure>
                 </div>
-                <div class="grid-item">
+
+                <div class="container-item">
                   <figure>
                     <ModalClass
                             image="https://cdn1.iconfinder.com/data/icons/weather-elements/512/Weather_TornadoGradient.png"
@@ -94,7 +94,6 @@ class HomePage extends Component {
                   </figure>
                 </div>
               </div>
-
             </div>
     );
     }
