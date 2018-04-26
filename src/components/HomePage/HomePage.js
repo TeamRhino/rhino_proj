@@ -46,8 +46,16 @@ class HomePage extends Component {
         return(
             <div>
               <h1 align="center">{HOMEPAGE_TITLE}</h1>
-              <div className="left">
-                  <h2 align = "left"><a name = "ManMade">Man Made Disaster</a></h2>
+              <div class="grid-container">
+                <div class="grid-item">Man-Made Disaster</div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+                <div class="grid-item">Natural Disaster</div>
+
+              </div>
+
+              <div class="grid-container">
+                <div class="grid-item">
                   <figure>
                     <ModalClass
                         image="https://www.iconexperience.com/_img/v_collection_png/512x512/shadow/ballistic_missile.png"
@@ -59,9 +67,12 @@ class HomePage extends Component {
                   </figure>
                 </div>
 
-                <div className="right">
-                  <h2 ><a name = "Natural">Natural Disaster</a></h2>
-                  <figure>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+
+
+                <div class="grid-item">
+                   <figure>
                     <ModalClass
                             image="https://cdn4.iconfinder.com/data/icons/aami-flat-disaster/64/disasters-01-512.png"
                             modalHeader="What type of alert would you like to send?"
@@ -70,7 +81,8 @@ class HomePage extends Component {
                             link="/alertpage">
                     </ModalClass>
                   </figure>
-
+                </div>
+                <div class="grid-item">
                   <figure>
                     <ModalClass
                             image="https://cdn1.iconfinder.com/data/icons/weather-elements/512/Weather_TornadoGradient.png"
@@ -81,6 +93,8 @@ class HomePage extends Component {
                     </ModalClass>
                   </figure>
                 </div>
+              </div>
+
             </div>
     );
     }

@@ -1,27 +1,10 @@
-h1, h2{
-  font-family: "Oswald", sans-serif;
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
 }
-
-img{
-  float: left;
-  margin-right: 100px;
-}
-
-.left{
-  float: left;
-  width: 300px;
-  padding: 1cm;
-}
-
-.right{
-  float: right;
-  width: 300px;
-  padding: 1cm;
-
-}
-
-.center{
-  margin-left: 300px;
-  margin-right: 300px;
-  padding: 1cm;
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }

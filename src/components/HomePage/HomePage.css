@@ -17,13 +17,25 @@ img{
   float: right;
   width: 300px;
   padding: 1cm;
-
 }
 
 .center{
   margin-left: 300px;
   margin-right: 300px;
   padding: 1cm;
+}
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }
 
 .ui.active.dimmer.modals.transition {
