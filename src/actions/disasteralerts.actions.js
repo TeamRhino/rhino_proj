@@ -4,7 +4,8 @@ import { history } from '../helpers';
 export const disasterAlertActions = {
     goToAlertsPage,
     goToConfirmPage,
-    goToMainPage
+    goToMainPage,
+    goToSuccessPage
 };
 
 function goToAlertsPage(alertEvent, alertType) {
@@ -20,5 +21,10 @@ function goToConfirmPage(alertTypes) {
 function goToMainPage() {
     history.push('/');
     return { type: disasterAlertConstants.RETURN_MAIN_PAGE }
+}
+
+function goToSuccessPage(alertTypes) {
+  history.push('/successpage');
+  return { type: disasterAlertConstants.SUCCESS_ALERT, alertTypes }
 }
 

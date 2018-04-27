@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { 
+import {
     Container,
     Button
 } from 'semantic-ui-react';
@@ -27,19 +27,43 @@ export default class SuccessPage extends Component {
         }
     }
 
+  playRadioAlert() {
+    if (this.props.alertTypes.radio) {
+      return (
+          <div>
+            <div>
+              <h2> To simulate a radio alert the following play button is placed. </h2>
+              <audio controls src="http://soundbible.com/grab.php?id=1063&type=mp3"> </audio>
+            </div>
+          </div>
+      )
+    }
+  }
+
     playTVAlert() {
         if (this.props.alertTypes.tv) {
             return (
                 <div>
                     <h2> To simulate a TV alert a Youtube video is linked </h2>
                     <iframe width="420" height="315"
-                        src="https://www.youtube.com/embed/ec7IN0KLWlU?autoplay=1">
+                            src="https://www.youtube.com/embed/jE4z-vYC8Vc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
                     </iframe>
-
                 </div>
             )
         }
     }
+
+  playSMSAlert() {
+    if (this.props.alertTypes.tv) {
+      return (
+          <div>
+            <h2></h2>
+            <h2> A text message alert has been sent to all of the residents of Hawai'i. </h2>
+            <h2></h2>
+          </div>
+      )
+    }
+  }
 
     render() {
         return(
@@ -47,15 +71,16 @@ export default class SuccessPage extends Component {
                 <Container>
                 <h1> Success! </h1>
                 {this.playSirenAlert()}
+                {this.playRadioAlert()}
                 {this.playTVAlert()}
-                <Button onClick={this.handleOnClick}> Return to Main Menu </Button>
+                {this.playSMSAlert()}
+                  <Button onClick={this.handleOnClick}> Return to Main Menu </Button>
                 </Container>
             </div>
         )
     }
 
 }
-
 
 function mapStateToProps(state) {
     const { alertTypes } = state.disasterAlerts;

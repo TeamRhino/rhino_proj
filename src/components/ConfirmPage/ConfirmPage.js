@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { 
+import {
     Container,
     Form,
     Button
  } from 'semantic-ui-react';
- import { userActions } from '../../actions';
+import { userActions } from '../../actions';
+import { disasterAlertActions } from '../../actions'
+
 
 export default class ConfirmPage extends Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -17,6 +19,11 @@ export default class ConfirmPage extends Component {
             submitted: false,
             passwordError: false
         };
+    }
+
+    restart = () => {
+      const { dispatch } = this.props;
+      dispatch(disasterAlertActions.goToMainPage());
     }
 
     alertSiren() {
@@ -57,8 +64,10 @@ export default class ConfirmPage extends Component {
         this.setState({ submitted: true });
         const { password, confirm } = this.state;
         const { dispatch } = this.props;
-        if (confirm === password) {
+        if (password && confirm === password) {
             dispatch(userActions.verifyAlert(this.props.user, password))
+            dispatch(disasterAlertActions.goToSuccessPage());
+
         } else {
             this.setState({passwordError: true, submitted: false})
         }
@@ -70,21 +79,26 @@ export default class ConfirmPage extends Component {
 
                 <Container>
                     <h1> You are going to send the following Alerts </h1>
-                    {this.alertSiren()} 
+                    {this.alertSiren()}
                     {this.alertRadio()}
                     {this.alertTV()}
                     {this.alertSMS()}
 
                     <h1> Reminder: You are sending a {this.props.disasterAlerts.alertType} {this.props.disasterAlerts.alertEvent} </h1>
 
-                    <Form onSubmit={this.handleSubmit}>
+                    <h3> Please create and confirm password to send the following alerts </h3>
+
+
+                  <Form onSubmit={this.handleSubmit}>
                         <Form.Input error={this.state.passwordError} type='password' placeholder='Password' name='password' onChange={this.handleChange} />
-                        <Form.Input error={this.state.passwordError} type='password' placeholder='Confirm' name='confirm' onChange={this.handleChange} />  
-                        <Button type='submit'>Submit</Button>
+                        <Form.Input error={this.state.passwordError} type='password' placeholder='Confirm' name='confirm' onChange={this.handleChange} />
+                        <Button color = 'green' type='submit'>Submit</Button>
+                        <Button color = 'red'onClick={this.restart}> Restart </Button>
                     </Form>
 
-                </Container>
+                  <center> <h3> <br /> <br /> *** Note: The Restart Button will send you back to the Homepage. Click that button if you want to start all over again. ***</h3></center>
 
+                </Container>
             </div>
         );
     }
