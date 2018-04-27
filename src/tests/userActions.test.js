@@ -10,18 +10,6 @@ import thunkMiddleware from 'redux-thunk'
 const middlewares = [ thunkMiddleware ];
 const mockStore = configureMockStore(middlewares);
 
-
-const mockResponse = (status, statusText, response) => {
-    return new window.Response(response, {
-      status: status,
-      statusText: statusText,
-      headers: {
-        'Content-type': 'application/json'
-      }
-    });
-};
-
-
 describe('UserAction', () => {
     it('should create an action to logout a user', () => {
         const expectedAction = {
