@@ -150,7 +150,7 @@ export default class AlertPage extends Component {
                 
 
                 <div className="column">
-                  <img alt="radio" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Icon_sound_radio.svg/2000px-Icon_sound_radio.svg.png" width="200" height="200"></img>
+                  <img alt="radio" src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/radio.png" width="200" height="200"></img>
                   <Button inverted 
                   color="green"
                   onClick={this.onRadioAlertClick}
@@ -159,7 +159,7 @@ export default class AlertPage extends Component {
                 </div>
 
                 <div className="column">
-                  <img alt="tv" src="https://cdn0.iconfinder.com/data/icons/communication-18/512/tv-512.png" width="200" height="200"></img>
+                  <img alt="tv" src="https://cdn0.iconfinder.com/data/icons/flat-designed-circle-icon-2/1000/television.png" width="200" height="200"></img>
                   <Button inverted
                    color="green"
                    onClick={this.onTVAlertClick}
@@ -179,7 +179,10 @@ export default class AlertPage extends Component {
               </div>
             </div>
 
+              <p> <br />Note: to unclick a button, click the clicked button again then click anywhere outside the button. </p>
+
             </Container>
+
 
     )
 

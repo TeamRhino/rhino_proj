@@ -57,7 +57,7 @@ class HomePage extends Component {
                 <div class="container-item">
                   <figure>
                     <ModalClass
-                        image="https://www.iconexperience.com/_img/v_collection_png/512x512/shadow/ballistic_missile.png"
+                        image="http://demoji.pro/submission/content/1-home/missile/emoji_missile_r.png"
                         modalHeader="What type of alert would you like to send?"
                         handleClick={this.handleMissileAlert}
                         eventHandler={this.eventTypeHandler}
