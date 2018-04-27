@@ -179,7 +179,7 @@ export default class AlertPage extends Component {
               </div>
             </div>
 
-              <p> <br />Note: to unclick a button, click the clicked button again then click anywhere outside the button. </p>
+              <center> <h3> <br /> <br /> *** Note: to unclick a button, click the clicked button again then click anywhere outside the button. ***</h3></center>
 
             </Container>
 
