@@ -67,6 +67,7 @@ export default class ConfirmPage extends Component {
     render() {
         return(
             <div>
+
                 <Container>
                     <h1> You are going to send the following Alerts </h1>
                     {this.alertSiren()} 

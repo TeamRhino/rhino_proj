@@ -112,7 +112,7 @@ export default class AlertPage extends Component {
     renderModal() {
         return(
             <Modal 
-              trigger={<Button onClick={this.onModalClick}>Show Modal</Button>}
+              trigger={<Button onClick={this.onModalClick}>Confirm</Button>}
               open={this.state.open}>
                 <Modal.Header>Confirm Window</Modal.Header>
                 <Modal.Content>
@@ -141,6 +141,8 @@ export default class AlertPage extends Component {
 
                 <div className="row">
                 <div className="column">
+                  <br />
+                  <br />
                   <img alt="siren" src="http://www.cityofhubbard-oh.gov/wp-content/uploads/2017/04/tornado-siren.jpg" width="200" height="200"></img>
                   <Button inverted 
                   color="green"
@@ -150,6 +152,9 @@ export default class AlertPage extends Component {
                 
 
                 <div className="column">
+
+                  <br />
+                  <br />
                   <img alt="radio" src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/radio.png" width="200" height="200"></img>
                   <Button inverted 
                   color="green"
@@ -159,6 +164,9 @@ export default class AlertPage extends Component {
                 </div>
 
                 <div className="column">
+
+                  <br />
+                  <br />
                   <img alt="tv" src="https://cdn0.iconfinder.com/data/icons/flat-designed-circle-icon-2/1000/television.png" width="200" height="200"></img>
                   <Button inverted
                    color="green"
@@ -167,6 +175,8 @@ export default class AlertPage extends Component {
                 </div>
 
                 <div className="column">
+                  <br />
+                  <br />
                   <img alt="sms" src="https://help.republicwireless.com/hc/article_attachments/115012283727/Google_Messenger_Icon.jpg" width="200" height="200"></img>
                   <Button inverted 
                   color="green"
