@@ -54,7 +54,7 @@ export default class SuccessPage extends Component {
     }
 
   playSMSAlert() {
-    if (this.props.alertTypes.tv) {
+    if (this.props.alertTypes.sms) {
       return (
           <div>
             <h2></h2>

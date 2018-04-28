@@ -33,6 +33,11 @@ export default class AlertPage extends Component {
         dispatch(disasterAlertActions.goToConfirmPage(this.state.activeAlerts));
     }
 
+  restart = () => {
+    const { dispatch } = this.props;
+    dispatch(disasterAlertActions.goToMainPage());
+  }
+
     onCancelClick = () => this.setState({open: false})
 
     onModalClick = () => this.setState({open: true})
@@ -111,8 +116,8 @@ export default class AlertPage extends Component {
 
     renderModal() {
         return(
-            <Modal 
-              trigger={<Button onClick={this.onModalClick}>Confirm</Button>}
+            <Modal
+              trigger={<Button color="green" onClick={this.onModalClick}>Confirm</Button>}
               open={this.state.open}>
                 <Modal.Header>Confirm Window</Modal.Header>
                 <Modal.Content>
@@ -145,7 +150,7 @@ export default class AlertPage extends Component {
                   <br />
                   <img alt="siren" src="http://www.cityofhubbard-oh.gov/wp-content/uploads/2017/04/tornado-siren.jpg" width="200" height="200"></img>
                   <Button inverted 
-                  color="green"
+                  color="blue"
                   onClick={this.onSirenAlertClick}
                   active={this.state.activeAlerts.siren}> Sirens </Button>
                 </div>
@@ -157,7 +162,7 @@ export default class AlertPage extends Component {
                   <br />
                   <img alt="radio" src="https://d1nhio0ox7pgb.cloudfront.net/_img/g_collection_png/standard/256x256/radio.png" width="200" height="200"></img>
                   <Button inverted 
-                  color="green"
+                  color="blue"
                   onClick={this.onRadioAlertClick}
                   active={this.state.activeAlerts.radio}> Radio </Button>
 
@@ -169,7 +174,7 @@ export default class AlertPage extends Component {
                   <br />
                   <img alt="tv" src="https://cdn0.iconfinder.com/data/icons/flat-designed-circle-icon-2/1000/television.png" width="200" height="200"></img>
                   <Button inverted
-                   color="green"
+                   color="blue"
                    onClick={this.onTVAlertClick}
                    active={this.state.activeAlerts.tv}> TV Alert </Button>
                 </div>
@@ -179,21 +184,20 @@ export default class AlertPage extends Component {
                   <br />
                   <img alt="sms" src="https://help.republicwireless.com/hc/article_attachments/115012283727/Google_Messenger_Icon.jpg" width="200" height="200"></img>
                   <Button inverted 
-                  color="green"
+                  color="blue"
                   onClick={this.onSMSAlertClick}
                   active={this.state.activeAlerts.sms}> SMS Alert </Button>
                 </div>
               </div>
               <div className="centered row">
                 {this.renderModal()}
+                <Button color = 'red'onClick={this.restart}> Restart </Button>
               </div>
             </div>
 
               <center> <h3> <br /> <br /> *** Note: to unclick a button, click the clicked button again then click anywhere outside the button. ***</h3></center>
 
             </Container>
-
-
     )
 
     }

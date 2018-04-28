@@ -78,7 +78,7 @@ export default class ConfirmPage extends Component {
             <div>
 
                 <Container>
-                    <h1> You are going to send the following Alerts </h1>
+                    <h1> You are going to send the following Alerts: </h1>
                     {this.alertSiren()}
                     {this.alertRadio()}
                     {this.alertTV()}
@@ -95,9 +95,6 @@ export default class ConfirmPage extends Component {
                         <Button color = 'green' type='submit'>Submit</Button>
                         <Button color = 'red'onClick={this.restart}> Restart </Button>
                     </Form>
-
-                  <center> <h3> <br /> <br /> *** Note: The Restart Button will send you back to the Homepage. Click that button if you want to start all over again. ***</h3></center>
-
                 </Container>
             </div>
         );
